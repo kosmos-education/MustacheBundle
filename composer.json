@@ -1,0 +1,24 @@
+{
+    "name": "kosmos/mustache-bundle",
+    "description": "Symfony integration to use the template engine Mustache",
+    "keywords": ["templating", "mustache", "symfony"],
+    "type": "symfony-bundle",
+    "autoload": {
+        "psr-4": {
+            "Kosmos\\MustacheBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Olivier Levasseur",
+            "email": "olivier.levasseur@kosmos.fr"
+        }
+    ],
+    "require": {
+        "php": "^7.4",
+        "mustache/mustache": "^2.14",
+        "symfony/http-kernel": "^5.4",
+        "symfony/config": "^5.4",
+        "symfony/dependency-injection": "^5.4"
+    }
+}
