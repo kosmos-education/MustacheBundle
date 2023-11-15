@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kosmos\MustacheBundle;
 
 use InvalidArgumentException;
@@ -19,7 +21,7 @@ class Mustache
     /**
      * Renders a template.
      *
-     * @param mixed $name       A template name
+     * @param string $name       A template name
      * @param array $parameters An array of parameters to pass to the template
      *
      * @return string The evaluated template as a string
@@ -27,7 +29,7 @@ class Mustache
      * @throws InvalidArgumentException if the template does not exist
      * @throws RuntimeException         if the template cannot be rendered
      */
-    public function render($name, array $parameters = array()): string
+    public function render(string $name, array $parameters = array()): string
     {
         return $this->load($name)->render($parameters);
     }
@@ -35,18 +37,14 @@ class Mustache
     /**
      * Loads the given template.
      *
-     * @param mixed $name A template name or an instance of Mustache_Template
+     * @param string $name A template name or an instance of Mustache_Template
      *
      * @return Mustache_Template A \Mustache_Template instance
      *
      * @throws InvalidArgumentException if the template does not exist
      */
-    private function load($name): Mustache_Template
+    private function load(string $name): Mustache_Template
     {
-        if ($name instanceof Mustache_Template) {
-            return $name;
-        }
-
         return $this->mustache->loadTemplate($name);
     }
 }
