@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kosmos\MustacheBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
@@ -8,7 +10,7 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('mustache');
         $rootNode = $treeBuilder->getRootNode();
@@ -17,7 +19,7 @@ class Configuration implements ConfigurationInterface
 
         return $treeBuilder;
     }
-    private function addMustacheOptions(ArrayNodeDefinition $rootNode)
+    private function addMustacheOptions(ArrayNodeDefinition $rootNode): void
     {
         $rootNode
             ->children()
